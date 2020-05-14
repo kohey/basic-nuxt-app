@@ -1,33 +1,18 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        basic-nuxt-app
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-    </div>
-  </section>
+  <div>
+
+  </div>
 </template>
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
 
 export default {
-  components: {
-    AppLogo
+  async mounted(){
+    console.log(
+      JSON.stringify(await
+        this.$axios.$get('https://qiita.com/qpi/v2/items?query=tag:nuxt.js'), true, ' ')
+    )
   }
 }
 </script>
@@ -62,4 +47,3 @@ export default {
   padding-top: 15px;
 }
 </style>
-
